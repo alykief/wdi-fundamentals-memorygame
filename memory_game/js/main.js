@@ -4,31 +4,27 @@ var cards = ["queen", "queen", "king", "king"];
 //Create an empty array 
 var cardsInPlay = [];
 
-//Create a variable cardOne
-var cardOne = cards[0];
-
-//Add first card to cardsInPlay array
-cardsInPlay.push(cardOne);
-
-//Use console.log() to display the User flipped card
-console.log("User flipped" + cardOne);
-
-//Create a variable cardTwo
-var cardTwo = cards[2];
-
-//Add second card to cardsInPlay array
-cardsInPlay.push(cardTwo);
-
-//Use console.log() to display the User flipped card 
-console.log("User flipped" + cardTwo);
-
-//Write an if statement to check if the length of cardsInPlay array is 2
-if (cardsInPlay.length === 2) {
-	//Write an if...else statement that checks for equality of the two cards
+//Create a function to check for match
+var checkForMatch = function () {
 	if (cardsInPlay[0] === cardsInPlay[1]) {
-		//If values are equal, alert "Match", otherwise, alert "Try again"
-		alert("You found a match!");
+		console.log("You found a match!");
 	} else {
-		alert("Sorry, try again.");
-		}
+		console.log("Sorry, try again.");
 	}
+};
+
+//Create a function called flipCard that accepts one parameter
+var flipCard = function (cardId) {
+		//Add a console.log() statement to display flipped card
+		console.log("User flipped " + cards[cardId]);
+		//Add the card that the user flipped to the cardsInPlay array
+		cardsInPlay.push(cards[cardId]);
+		//Check if cards have been played 
+		if (cardsInPlay.length === 2) {
+			checkForMatch();
+			}
+};
+
+//Simulate user flipping a card 
+flipCard(0);
+flipCard(2);
